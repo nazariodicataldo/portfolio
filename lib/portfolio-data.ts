@@ -1,9 +1,9 @@
 export const CV_URL = "https://example.com/nazario-di-cataldo-cv.pdf"
 
 export const contactLinks = {
-  whatsapp: "https://wa.me/390000000000",
-  phone: "tel:+390000000000",
-  email: "mailto:ciao@example.com",
+  whatsapp: "https://wa.me/393396744316",
+  phone: "tel:+393396744316",
+  email: "mailto:nazariodicataldo@icloud.com",
   github: "https://github.com/nazariodicataldo",
   linkedin: "https://www.linkedin.com/in/placeholder-nazario-di-cataldo",
 }
@@ -195,16 +195,22 @@ export const education = [
     period: "Settembre 2018 – Giugno 2023",
     institution: "Istituto Tecnico L. Di Maggio",
     title: "Informatica",
+    description:
+      "Ho acquisito le basi della programmazione con Java, C++ e Python, lavorando su progetti pratici e collaborazioni di gruppo.",
   },
   {
     period: "Ottobre 2023 – Luglio 2025",
     institution: "Istituto Infobasic",
     title: "Web & Multimedia Design",
+    description:
+      "Ho avviato la formazione su HTML, CSS, UX/UI e strumenti grafici, iniziando a sviluppare i miei primi siti web. Ho poi approfondito JavaScript, SEO e WordPress, migliorando le competenze UX/UI e in Figma, fino a realizzare progetti concreti e conseguire un attestato professionale riconosciuto.",
   },
   {
     period: "Ottobre 2025 – Giugno 2026",
     institution: "Istituto Infobasic",
     title: "Full Stack Developer",
+    description:
+      "Ho perfezionato il frontend con React e il suo ecosistema, avviando il percorso backend con PHP, OOP, API REST, Git, PostgreSQL, database relazionali e MongoDB. Ho poi completato il percorso backend con Laravel, Sanctum, Postman, Node.js, Hono, Drizzle ORM e JWT, svolgendo un tirocinio formativo, approfondendo Next.js e ottenendo un attestato professionale.",
   },
 ] as const
 
@@ -212,15 +218,15 @@ export const experiences = [
   {
     period: "Giugno 2025 – Luglio 2025",
     company: "MSE Automation",
-    role: "Stage Web Developer",
+    role: "Stage - Web Developer",
     responsibilities:
-      "Collaborazione al redesign di Cworks.it, ottimizzazione SEO, riorganizzazione del catalogo e miglioramento dell’esperienza utente.",
+      "Ho collaborato al redesign di Cworks.it, lavorando sull'ottimizzazione SEO e su Google Search Console per analizzare le metriche del sito, oltre alla riorganizzazione del catalogo prodotti e al miglioramento dell'esperienza utente. Ho creato layout custom in PHP e usato strumenti dedicati all'e-commerce, imparando a leggere e gestire le performance reali di un sito in produzione.",
   },
   {
     period: "Maggio 2026 – Giugno 2026",
     company: "Ud’Anet",
-    role: "Stage Full Stack Developer",
+    role: "Stage - Full Stack Developer",
     responsibilities:
-      "Manutenzione e miglioramento del gestionale Il Piccolo Ascolto, gestione di esami XML e utenti Moodle, uso di Git per il lavoro sul codice.",
+      "Ho lavorato alla manutenzione e al miglioramento del gestionale Il Piccolo Ascolto, e mettendo le mani su codice legacy anche in Angular. Ho sviluppato inoltre siti in WordPress curando il design e rispettando le scadenze. È stata la prima vera esperienza di lavoro in team su un progetto già in produzione, tra uso quotidiano di Git per il versionamento e comunicazione costante con il resto del gruppo. Ho anche gestito l'inserimento di esami e utenti, tramite XML, su Moodle,",
   },
 ] as const

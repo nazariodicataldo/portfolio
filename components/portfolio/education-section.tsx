@@ -48,6 +48,7 @@ export default function Education() {
               <p className="text-sm text-muted-foreground">{entry.period}</p>
               <h3 className="mt-2 text-xl font-semibold">{entry.title}</h3>
               <p className="mt-1 text-muted-foreground">{entry.institution}</p>
+              <p className="mt-2 text-secondary-foreground dark:text-secondary text-sm">{entry.description}</p>
             </Reveal>
           ))}
         </div>

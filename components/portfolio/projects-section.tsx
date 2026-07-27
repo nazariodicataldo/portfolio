@@ -185,7 +185,7 @@ export default function Projects() {
                   "outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   isActive
                     ? "w-8 bg-primary"
-                    : "w-4 bg-muted hover:bg-muted-foreground/50",
+                    : "w-4 bg-secondary hover:bg-muted-foreground/50",
                 ].join(" ")}
               />
             )

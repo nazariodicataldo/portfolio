@@ -28,7 +28,7 @@ export default function Experience() {
               </p>
               <h3 className="mt-2 text-xl font-semibold">{experience.role}</h3>
               <p className="mt-1 font-medium">{experience.company}</p>
-              <p className="mt-5 leading-7 text-muted-foreground">
+              <p className="mt-2 leading-7 text-secondary-foreground dark:text-secondary text-sm">
                 {experience.responsibilities}
               </p>
             </Reveal>

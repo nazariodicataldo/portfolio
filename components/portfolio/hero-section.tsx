@@ -1,14 +1,22 @@
 import { CV_URL } from "@/lib/portfolio-data"
 import { Reveal } from "./reveal"
 import { TechIcon } from "@/tech-icon"
+import {
+  SiLaravel,
+  SiNextdotjs,
+  SiPostgresql,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from "@icons-pack/react-simple-icons"
 
 const heroTechnologies = [
-  "Next.js",
-  "TypeScript",
-  "Tailwind CSS",
-  "Laravel",
-  "PostgreSQL",
-  "React Native",
+  { name: "Next.js", icon: <SiNextdotjs size={48} /> },
+  { name: "TypeScript", icon: <SiTypescript size={48} /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss size={48} /> },
+  { name: "Laravel", icon: <SiLaravel size={48} /> },
+  { name: "PostgreSQL", icon: <SiPostgresql size={48} /> },
+  { name: "React Native", icon: <SiReact size={48} /> },
 ]
 
 export default function Hero() {
@@ -50,7 +58,12 @@ export default function Hero() {
         </div>
         <div className="mt-12 grid max-w-sm grid-cols-3 gap-3">
           {heroTechnologies.map((technology, index) => (
-            <TechIcon key={technology} label={technology} index={index} />
+            <TechIcon
+              key={technology.name}
+              label={technology.name}
+              icon={technology.icon}
+              index={index}
+            />
           ))}
         </div>
       </Reveal>
