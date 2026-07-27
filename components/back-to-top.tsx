@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { useReducedMotion } from "../hooks/use-reduced-motion"
+import { useReducedMotion } from "motion/react"
 import { ArrowUp } from "lucide-react"
 
 export default function BackToTop() {

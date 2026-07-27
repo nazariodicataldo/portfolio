@@ -6,11 +6,7 @@ import { Reveal } from "./reveal"
 import { cn } from "@/lib/utils"
 import { type CarouselApi } from "@/components/ui/carousel"
 import { ExternalLink } from "lucide-react"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "../ui/carousel"
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel"
 import { Button } from "../ui/button"
 import Image from "next/image"
 
@@ -108,7 +104,7 @@ export default function Projects() {
               <article>
                 <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
                   <Image
-                    src={project.img}
+                    src={project.imgUrl}
                     alt={`Screenshot del progetto ${project.title}`}
                     fill
                     sizes="(min-width: 768px) 86vw, 100vw"

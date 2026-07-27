@@ -19,8 +19,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Hero technologies are Next.js, TypeScript, Tailwind CSS, Laravel, PostgreSQL,
   and React Native, rendered as a 3-by-2 icon grid with accessible tooltips.
 - The education timeline may have a subtle scroll-linked accent. Other timeline
-  content is static; general reveal animations must be subtle and disabled for
-  `prefers-reduced-motion`.
+  content is static; implement its accent and general reveals with `motion/react`,
+  and disable movement with Motion's `useReducedMotion`.
 - Treat keyboard navigation, visible focus, reduced motion, and semantic
   landmarks as non-negotiable acceptance criteria.
 - Keep page composition in `components/portfolio-page.tsx`; place each section,

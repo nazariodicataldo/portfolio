@@ -1,14 +1,5 @@
-import CarConfiguratorImage from "@/public/car-configurator.jpg"
-import AurealisDomusImage from "@/public/aurealis-domus.png"
-import CinescopeImage from "@/public/cinescope.jpeg"
-import CworksImage from "@/public/cworks.png"
-import NataleAdAostaImage from "@/public/natale-ad-aosta.png"
-import TanduriImage from "@/public/tanduri.png"
-import TournamentManagerImage from "@/public/tournament-manager.jpeg"
-import TravelexImage from "@/public/travelex.jpeg"
-import { StaticImageData } from "next/image"
-
-export const CV_URL = "./Nazario_Di_Cataldo_CV.pdf"
+export const CV_URL =
+  "https://5uehff9uouvltq0y.private.blob.vercel-storage.com/Nazario_Di_Cataldo_CV.pdf?vercel-blob-valid-until=1785189694140&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfNVVlaGZmOVVPVVZsdFEwWSIsIm93bmVySWQiOiJ0ZWFtX3lMMnp6TGNoMjJNWmsxYkZ4aW1WV01FVSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzg1MjMyMzMwMzk4LCJpYXQiOjE3ODUxODkxMzEwMjZ9.V1-Lb1ny6tYQxv0xKVy9Ts-B66J6vCnoZIRh7iOeskg&vercel-blob-signature=Lf7HFkHytTSiOvUrIYLR-eaCcddNMWN4Jfx4hpqRj2k"
 
 export const contactLinks = {
   whatsapp: "https://wa.me/393396744316",
@@ -51,7 +42,7 @@ export type Project = {
   category: ProjectCategory
   description: string
   technologies: readonly string[]
-  img: StaticImageData
+  imgUrl: string
   links: readonly { label: string; href: string }[]
 }
 
@@ -69,7 +60,8 @@ export const projects: readonly Project[] = [
       "Tailwind CSS",
       "Shadcn UI",
     ],
-    img: TravelexImage,
+    imgUrl:
+      "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/travelex.webp",
     links: [
       {
         label: "Frontend",
@@ -94,7 +86,8 @@ export const projects: readonly Project[] = [
       "Tailwind CSS",
       "Shadcn UI",
     ],
-    img: CinescopeImage,
+    imgUrl:
+      "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/cinescope.webp",
     links: [
       {
         label: "Frontend",
@@ -118,7 +111,8 @@ export const projects: readonly Project[] = [
       "PostgreSQL",
       "Tailwind CSS",
     ],
-    img: CarConfiguratorImage,
+    imgUrl:
+      "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/car-configurator.webp",
     links: [
       {
         label: "Sito live",
@@ -144,7 +138,8 @@ export const projects: readonly Project[] = [
     description:
       "Applicazione per squadre, giocatori, partite e classifiche con CRUD via API REST, dashboard amministrativa e autenticazione.",
     technologies: ["React", "TypeScript", "PHP", "PostgreSQL", "Tailwind CSS"],
-    img: TournamentManagerImage,
+    imgUrl:
+      "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/tournament-manager.webp",
     links: [
       {
         label: "Frontend",
@@ -162,7 +157,8 @@ export const projects: readonly Project[] = [
     description:
       "Sito per una pro loco che promuove il turismo natalizio, i mercatini e il coinvolgimento degli espositori.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    img: NataleAdAostaImage,
+    imgUrl:
+      "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/natale-ad-aosta.webp",
     links: [
       {
         label: "Sito live",
@@ -176,7 +172,8 @@ export const projects: readonly Project[] = [
     description:
       "Sito per un ristorante indiano, dal logo all’identità visiva, con wishlist in Local Storage e flusso verso il checkout.",
     technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    img: TanduriImage,
+    imgUrl:
+      "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/tanduri.webp",
     links: [
       {
         label: "Sito live",
@@ -190,7 +187,8 @@ export const projects: readonly Project[] = [
     description:
       "Sito per resort, terme e spa con camere, trattamenti, eventi, contatti e richiesta di prenotazione.",
     technologies: ["WordPress", "Elementor"],
-    img: AurealisDomusImage,
+    imgUrl:
+      "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/aurealis-domus.webp",
     links: [
       {
         label: "Sito live",
@@ -204,7 +202,8 @@ export const projects: readonly Project[] = [
     description:
       "Sito vetrina per componenti industriali usati e funzionanti, con catalogo e contatto diretto con l’azienda.",
     technologies: ["WordPress", "Elementor", "WooCommerce"],
-    img: CworksImage,
+    imgUrl:
+      "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/cworks.webp",
     links: [{ label: "Sito live", href: "https://www.cworks.it/" }],
   },
 ]

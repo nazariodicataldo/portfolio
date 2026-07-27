@@ -10,7 +10,6 @@ import {
   SiTypescript,
 } from "@icons-pack/react-simple-icons"
 import Image from "next/image"
-import image from "@/public/nazario-dicataldo.png"
 
 const heroTechnologies = [
   { name: "Next.js", icon: <SiNextdotjs size={48} /> },
@@ -71,7 +70,9 @@ export default function Hero() {
       <Reveal className="relative grid min-h-96 place-items-center border-t border-border bg-muted lg:min-h-0 lg:border-t-0 lg:border-l">
         <div className="relative w-full">
           <Image
-            src={image}
+            src={
+              "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/nazario-dicataldo.webp"
+            }
             alt="Foto profilo di Nazario Di Cataldo"
             width={768}
             height={768}

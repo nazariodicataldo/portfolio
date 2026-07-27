@@ -1,26 +1,15 @@
-import { useReducedMotion } from "@/hooks/use-reduced-motion"
+"use client"
+
 import React from "react"
+import { motion, useReducedMotion, useScroll, useSpring } from "motion/react"
 import { Reveal } from "./reveal"
 import { education } from "@/lib/portfolio-data"
 
 export default function Education() {
   const containerRef = React.useRef<HTMLElement>(null)
   const reduceMotion = useReducedMotion()
-  const [progress, setProgress] = React.useState(0)
-  React.useEffect(() => {
-    const update = () => {
-      const element = containerRef.current
-      if (!element || reduceMotion) return setProgress(1)
-      const rect = element.getBoundingClientRect()
-      const total = rect.height + window.innerHeight * 0.2
-      setProgress(
-        Math.min(1, Math.max(0, (window.innerHeight * 0.75 - rect.top) / total))
-      )
-    }
-    update()
-    window.addEventListener("scroll", update, { passive: true })
-    return () => window.removeEventListener("scroll", update)
-  }, [reduceMotion])
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start 75%", "end 55%"] })
+  const progress = useSpring(scrollYProgress, { stiffness: 110, damping: 30 })
   return (
     <section
       ref={containerRef}
@@ -38,9 +27,9 @@ export default function Education() {
         </Reveal>
         <div className="relative pl-8">
           <div className="absolute top-4 bottom-4 left-1.5 w-px bg-border" />
-          <div
+          <motion.div
             className="absolute top-4 bottom-4 left-1.5 w-px origin-top bg-primary transition-transform duration-100 motion-reduce:transition-none"
-            style={{ transform: `scaleY(${progress})` }}
+            style={{ scaleY: reduceMotion ? 1 : progress }}
           />
           {education.map((entry) => (
             <Reveal key={entry.title} className="relative pb-14 last:pb-0">
