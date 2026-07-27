@@ -3,7 +3,7 @@ import { Code2 } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground px-5 pb-8 text-background lg:px-8">
+    <footer className="bg-primary px-5 pb-8 text-background lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-5 border-t border-background/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-background/65">
           © {new Date().getFullYear()} Nazario Di Cataldo

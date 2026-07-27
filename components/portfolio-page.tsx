@@ -20,7 +20,7 @@ export function PortfolioPage() {
         Vai al contenuto principale
       </a>
       <Header />
-      <main id="main-content">
+      <main id="main-content" className="overflow-hidden">
         <Hero />
         <Skills />
         <Projects />

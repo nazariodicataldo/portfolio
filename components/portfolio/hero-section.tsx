@@ -17,7 +17,7 @@ export default function Hero() {
       id="top"
       className="grid min-h-[calc(100svh-4rem)] scroll-mt-16 border-b border-border lg:grid-cols-2"
     >
-      <Reveal className="flex flex-col justify-center px-5 py-20 lg:px-8 xl:pl-[max(2rem,calc((100vw-80rem)/2))]">
+      <Reveal className="flex flex-col justify-center px-5 py-20 lg:px-8 xl:px-18">
         <p className="mb-5 text-sm font-medium text-muted-foreground">
           Full Stack Developer
         </p>

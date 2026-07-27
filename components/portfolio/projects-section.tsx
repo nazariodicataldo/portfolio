@@ -1,27 +1,58 @@
-'use client'
+"use client"
 
 import { ProjectCategory, projects } from "@/lib/portfolio-data"
 import React from "react"
 import { Reveal } from "./reveal"
 import { cn } from "@/lib/utils"
-import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react"
+import { type CarouselApi } from "@/components/ui/carousel"
+import { ExternalLink } from "lucide-react"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+} from "../ui/carousel"
 import { Button } from "../ui/button"
 
 export default function Projects() {
+  const [api, setApi] = React.useState<CarouselApi>()
+  const [current, setCurrent] = React.useState(0)
+  const [count, setCount] = React.useState(0)
+
   const [category, setCategory] = React.useState<ProjectCategory>("full-stack")
-  const scrollRef = React.useRef<HTMLDivElement>(null)
+
   const visibleProjects = projects.filter(
     (project) => project.category === category
   )
-  const scrollByCard = (direction: number) =>
-    scrollRef.current?.scrollBy({
-      left: direction * (scrollRef.current.clientWidth * 0.85),
-      behavior: "smooth",
-    })
+
+  React.useEffect(() => {
+    if (!api) return
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap())
+      setCount(api.scrollSnapList().length)
+    }
+
+    onSelect()
+    api.on("select", onSelect)
+    api.on("reInit", onSelect)
+
+    return () => {
+      api.off("select", onSelect)
+      api.off("reInit", onSelect)
+    }
+  }, [api])
+
+  React.useEffect(() => {
+    if (!api) return
+    api.reInit()
+    api.scrollTo(0, true) 
+  }, [api, category])
+
   return (
     <section
       id="projects"
-      className="scroll-mt-16 border-b border-border py-24"
+      className="w-full scroll-mt-16 overflow-x-clip border-b border-border py-24"
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal>
@@ -59,81 +90,113 @@ export default function Projects() {
           </div>
         </Reveal>
       </div>
-      <div
-        ref={scrollRef}
-        className="mt-12 flex snap-x snap-mandatory [scrollbar-width:none] gap-5 overflow-x-auto px-5 pb-5 lg:px-8"
-        aria-live="polite"
+      {/* new carousel */}
+      <Carousel
+        className="mt-12 max-w-full cursor-grab"
+        setApi={setApi}
+        opts={{
+          align: "start",
+          loop: true,
+        }}
       >
-        {visibleProjects.map((project) => (
-          <article
-            key={project.title}
-            className="w-[86vw] shrink-0 snap-start lg:w-[min(54rem,72vw)]"
-          >
-            <div className="grid aspect-[16/9] place-items-center rounded-lg border border-border bg-muted">
-              <p className="text-sm text-muted-foreground">
-                Screenshot di {project.title} in arrivo
-              </p>
-            </div>
-            <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:justify-between">
-              <div>
-                <h3 className="text-2xl font-semibold">{project.title}</h3>
-                <p className="mt-2 max-w-2xl leading-7 text-muted-foreground">
-                  {project.description}
-                </p>
-                <ul
-                  className="mt-4 flex flex-wrap gap-2"
-                  aria-label={`Tecnologie: ${project.technologies.join(", ")}`}
-                >
-                  {project.technologies.map((technology) => (
-                    <li
-                      key={technology}
-                      className="rounded-md border border-border px-2 py-1 text-xs"
+        <CarouselContent>
+          {visibleProjects.map((project) => (
+            <CarouselItem
+              key={project.title}
+              className="basis-full pl-8 md:basis-[86%] md:pl-10 lg:pl-22"
+            >
+              <article>
+                <div className="grid aspect-video place-items-center rounded-lg border border-border bg-muted">
+                  <p className="text-sm text-muted-foreground">
+                    Screenshot di {project.title} in arrivo
+                  </p>
+                </div>
+                <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:justify-between">
+                  <div>
+                    <h3 className="text-2xl font-semibold">{project.title}</h3>
+                    <p className="mt-2 max-w-2xl leading-7 text-muted-foreground">
+                      {project.description}
+                    </p>
+                    <ul
+                      className="mt-4 flex flex-wrap gap-2"
+                      aria-label={`Tecnologie: ${project.technologies.join(", ")}`}
                     >
-                      {technology}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex shrink-0 flex-wrap content-start gap-2">
-                {project.links.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex h-9 items-center gap-1 rounded-md border border-border px-3 text-sm hover:bg-muted"
-                  >
-                    {link.label}
-                    <ExternalLink className="size-3" />
-                    <span className="sr-only">
-                      {" "}
-                      (si apre in una nuova scheda)
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-      <div className="mx-auto mt-3 flex max-w-7xl justify-end gap-2 px-5 lg:px-8">
-        <Button
-          variant="outline"
-          size="icon-lg"
-          onClick={() => scrollByCard(-1)}
-          aria-label="Progetto precedente"
+                      {project.technologies.map((technology) => (
+                        <li
+                          key={technology}
+                          className="rounded-md border border-border px-2 py-1 text-xs"
+                        >
+                          {technology}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex shrink-0 flex-wrap content-start gap-2">
+                    {project.links.map((link) => (
+                      <Button
+                        key={link.href}
+                        variant={"secondary"}
+                        size={"lg"}
+                        nativeButton={false}
+                        render={
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {link.label}
+                            <ExternalLink className="size-3" />
+                            <span className="sr-only">
+                              {" "}
+                              (si apre in una nuova scheda)
+                            </span>
+                          </a>
+                        }
+                      ></Button>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+
+        {/* Dot indicators */}
+        <div
+          role="tablist"
+          aria-label="Slide dell'elemento carosello"
+          className="mt-6 flex items-center justify-center gap-2"
         >
-          <ArrowLeft />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon-lg"
-          onClick={() => scrollByCard(1)}
-          aria-label="Progetto successivo"
-        >
-          <ArrowRight />
-        </Button>
-      </div>
+          {Array.from({ length: count }).map((_, index) => {
+            const isActive = index === current
+
+            return (
+              <button
+                key={index}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-controls={`carousel-slide-${index + 1}`}
+                aria-label={`Vai alla slide ${index + 1} di ${count}`}
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => api?.scrollTo(index)}
+                className={[
+                  "h-4 rounded-full transition-all duration-300 ease-out",
+                  "outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                  isActive
+                    ? "w-8 bg-primary"
+                    : "w-4 bg-muted hover:bg-muted-foreground/50",
+                ].join(" ")}
+              />
+            )
+          })}
+        </div>
+
+        {/* Testo nascosto visivamente ma letto dagli screen reader: annuncia il cambio slide */}
+        <p role="status" aria-live="polite" className="sr-only">
+          Slide {current + 1} di {count}
+        </p>
+      </Carousel>
     </section>
   )
 }

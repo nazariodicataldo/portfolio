@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-16 bg-foreground py-24 text-background"
+      className="scroll-mt-16 bg-primary py-24 text-background"
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal>
