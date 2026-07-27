@@ -1,4 +1,14 @@
-export const CV_URL = "https://example.com/nazario-di-cataldo-cv.pdf"
+import CarConfiguratorImage from "@/public/car-configurator.jpg"
+import AurealisDomusImage from "@/public/aurealis-domus.png"
+import CinescopeImage from "@/public/cinescope.jpeg"
+import CworksImage from "@/public/cworks.png"
+import NataleAdAostaImage from "@/public/natale-ad-aosta.png"
+import TanduriImage from "@/public/tanduri.png"
+import TournamentManagerImage from "@/public/tournament-manager.jpeg"
+import TravelexImage from "@/public/travelex.jpeg"
+import { StaticImageData } from "next/image"
+
+export const CV_URL = "./Nazario_Di_Cataldo_CV.pdf"
 
 export const contactLinks = {
   whatsapp: "https://wa.me/393396744316",
@@ -41,6 +51,7 @@ export type Project = {
   category: ProjectCategory
   description: string
   technologies: readonly string[]
+  img: StaticImageData
   links: readonly { label: string; href: string }[]
 }
 
@@ -58,6 +69,7 @@ export const projects: readonly Project[] = [
       "Tailwind CSS",
       "Shadcn UI",
     ],
+    img: TravelexImage,
     links: [
       {
         label: "Frontend",
@@ -82,6 +94,7 @@ export const projects: readonly Project[] = [
       "Tailwind CSS",
       "Shadcn UI",
     ],
+    img: CinescopeImage,
     links: [
       {
         label: "Frontend",
@@ -105,6 +118,7 @@ export const projects: readonly Project[] = [
       "PostgreSQL",
       "Tailwind CSS",
     ],
+    img: CarConfiguratorImage,
     links: [
       {
         label: "Sito live",
@@ -130,6 +144,7 @@ export const projects: readonly Project[] = [
     description:
       "Applicazione per squadre, giocatori, partite e classifiche con CRUD via API REST, dashboard amministrativa e autenticazione.",
     technologies: ["React", "TypeScript", "PHP", "PostgreSQL", "Tailwind CSS"],
+    img: TournamentManagerImage,
     links: [
       {
         label: "Frontend",
@@ -147,6 +162,7 @@ export const projects: readonly Project[] = [
     description:
       "Sito per una pro loco che promuove il turismo natalizio, i mercatini e il coinvolgimento degli espositori.",
     technologies: ["HTML", "CSS", "JavaScript"],
+    img: NataleAdAostaImage,
     links: [
       {
         label: "Sito live",
@@ -160,6 +176,7 @@ export const projects: readonly Project[] = [
     description:
       "Sito per un ristorante indiano, dal logo all’identità visiva, con wishlist in Local Storage e flusso verso il checkout.",
     technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+    img: TanduriImage,
     links: [
       {
         label: "Sito live",
@@ -173,6 +190,7 @@ export const projects: readonly Project[] = [
     description:
       "Sito per resort, terme e spa con camere, trattamenti, eventi, contatti e richiesta di prenotazione.",
     technologies: ["WordPress", "Elementor"],
+    img: AurealisDomusImage,
     links: [
       {
         label: "Sito live",
@@ -186,6 +204,7 @@ export const projects: readonly Project[] = [
     description:
       "Sito vetrina per componenti industriali usati e funzionanti, con catalogo e contatto diretto con l’azienda.",
     technologies: ["WordPress", "Elementor", "WooCommerce"],
+    img: CworksImage,
     links: [{ label: "Sito live", href: "https://www.cworks.it/" }],
   },
 ]

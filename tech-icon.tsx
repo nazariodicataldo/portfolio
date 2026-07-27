@@ -1,4 +1,10 @@
-export function TechIcon({ label, index, icon }: { label: string; index: number; icon: React.ReactNode }) {
+export function TechIcon({
+  label,
+  icon,
+}: {
+  label: string
+  icon: React.ReactNode
+}) {
   return (
     <div className="group relative grid aspect-square place-items-center rounded-md border border-border bg-card">
       {icon}

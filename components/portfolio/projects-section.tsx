@@ -10,9 +10,9 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
 } from "../ui/carousel"
 import { Button } from "../ui/button"
+import Image from "next/image"
 
 export default function Projects() {
   const [api, setApi] = React.useState<CarouselApi>()
@@ -46,7 +46,7 @@ export default function Projects() {
   React.useEffect(() => {
     if (!api) return
     api.reInit()
-    api.scrollTo(0, true) 
+    api.scrollTo(0, true)
   }, [api, category])
 
   return (
@@ -103,13 +103,17 @@ export default function Projects() {
           {visibleProjects.map((project) => (
             <CarouselItem
               key={project.title}
-              className="basis-full pl-8 md:basis-[86%] md:pl-10 lg:pl-22"
+              className="basis-full pl-8 md:basis-[75%] md:pl-10 lg:pl-22"
             >
               <article>
-                <div className="grid aspect-video place-items-center rounded-lg border border-border bg-muted">
-                  <p className="text-sm text-muted-foreground">
-                    Screenshot di {project.title} in arrivo
-                  </p>
+                <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
+                  <Image
+                    src={project.img}
+                    alt={`Screenshot del progetto ${project.title}`}
+                    fill
+                    sizes="(min-width: 768px) 86vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
                 <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:justify-between">
                   <div>

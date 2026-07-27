@@ -25,3 +25,5 @@ This version has breaking changes — APIs, conventions, and file structure may 
   landmarks as non-negotiable acceptance criteria.
 - Keep page composition in `components/portfolio-page.tsx`; place each section,
   shared UI primitive, and client hook in its own file under `components/portfolio/`.
+- Keep project cards at a fixed 16:9 ratio with `next/image`, `fill`, and
+  `object-cover`; visual uniformity takes precedence over showing every edge.
