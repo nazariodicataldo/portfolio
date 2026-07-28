@@ -8,7 +8,10 @@ import { education } from "@/lib/portfolio-data"
 export default function Education() {
   const containerRef = React.useRef<HTMLElement>(null)
   const reduceMotion = useReducedMotion()
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start 75%", "end 55%"] })
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 75%", "end 55%"],
+  })
   const progress = useSpring(scrollYProgress, { stiffness: 110, damping: 30 })
   return (
     <section
@@ -32,12 +35,14 @@ export default function Education() {
             style={{ scaleY: reduceMotion ? 1 : progress }}
           />
           {education.map((entry) => (
-            <Reveal key={entry.title} className="relative pb-14 last:pb-0">
+            <Reveal key={entry.title} className="relative pr-2 pb-14 last:pb-0">
               <span className="absolute top-1 -left-[1.94rem] ml-1 size-3 rounded-full border-2 border-background bg-primary" />
               <p className="text-sm text-muted-foreground">{entry.period}</p>
               <h3 className="mt-2 text-xl font-semibold">{entry.title}</h3>
               <p className="mt-1 text-muted-foreground">{entry.institution}</p>
-              <p className="mt-2 text-secondary-foreground dark:text-secondary text-sm">{entry.description}</p>
+              <p className="mt-2 text-sm text-balance text-secondary-foreground dark:text-secondary">
+                {entry.description}
+              </p>
             </Reveal>
           ))}
         </div>

@@ -99,7 +99,7 @@ export default function Projects() {
           {visibleProjects.map((project) => (
             <CarouselItem
               key={project.title}
-              className="basis-full pl-8 md:basis-[75%] md:pl-10 lg:pl-22"
+              className="basis-full pl-10 pr-6 md:basis-[86%] md:pl-10 lg:basis-[75%] lg:pl-22"
             >
               <article>
                 <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">

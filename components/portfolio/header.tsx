@@ -29,7 +29,7 @@ export default function Header() {
           ))}
           <ThemeToggle />
         </div>
-        <Drawer.Root open={open} onOpenChange={setOpen} swipeDirection="right">
+        <Drawer.Root open={open} onOpenChange={setOpen} swipeDirection="right" >
           <Drawer.Trigger
             className="inline-flex size-10 items-center justify-center rounded-md hover:bg-muted lg:hidden"
             aria-label="Apri menu"

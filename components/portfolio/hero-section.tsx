@@ -10,6 +10,7 @@ import {
   SiTypescript,
 } from "@icons-pack/react-simple-icons"
 import Image from "next/image"
+import { Button } from "../ui/button"
 
 const heroTechnologies = [
   { name: "Next.js", icon: <SiNextdotjs size={48} /> },
@@ -26,38 +27,41 @@ export default function Hero() {
       id="top"
       className="grid min-h-[calc(100svh-4rem)] scroll-mt-16 border-b border-border lg:grid-cols-2"
     >
-      <Reveal className="flex flex-col justify-center px-5 py-20 lg:px-8 xl:px-18">
+      <Reveal className="order-1 flex flex-col justify-center px-5 py-20 lg:order-0 lg:px-8 xl:px-18">
         <p className="mb-5 pl-1 text-sm font-medium text-muted-foreground">
           Full Stack Developer
         </p>
-        <h1 className="max-w-3xl text-6xl font-semibold tracking-[-0.06em] sm:text-7xl lg:text-8xl">
+        <h1 className="max-w-3xl md:max-w-none text-6xl font-semibold tracking-[-0.06em] sm:text-7xl lg:text-8xl">
           Nazario
-          <br />
-          <span className="text-primary">Di Cataldo</span>
+          <br className="md:hidden lg:block" />
+          <span className="text-primary md:ml-4 lg:ml-0">Di Cataldo</span>
         </h1>
-        <p className="mt-8 max-w-xl text-lg leading-8 text-muted-foreground">
+        <p className="mt-8 max-w-xl md:max-w-none md:w-full text-lg leading-8 text-muted-foreground">
           Sviluppo applicazioni web e interfacce responsive, dall’idea alla
           logica backend. Mi muovo tra Next.js, Laravel, database relazionali e
           web design.
         </p>
         <div className="mt-9 flex flex-wrap gap-3">
-          <a
-            href="#contact"
-            className="inline-flex h-10 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground hover:bg-primary/85"
-          >
-            Parliamo di un progetto
-          </a>
-          <a
-            href={CV_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-10 items-center rounded-md border border-border px-4 text-sm font-medium hover:bg-muted"
-          >
-            Scarica CV
-            <span className="sr-only"> (si apre in una nuova scheda)</span>
-          </a>
+          <Button
+            size={"lg"}
+            className={"grow md:grow-0"}
+            nativeButton={false}
+            render={<a href="#contact">Parliamo di un progetto</a>}
+          />
+          <Button
+            variant={"secondary"}
+            size={"lg"}
+            className={"grow md:grow-0"}
+            nativeButton={false}
+            render={
+              <a href={CV_URL} target="_blank" rel="noopener noreferrer">
+                Scarica CV
+                <span className="sr-only"> (si apre in una nuova scheda)</span>
+              </a>
+            }
+          />
         </div>
-        <div className="mt-12 grid max-w-sm grid-cols-3 gap-3">
+        <div className="mt-12 grid max-w-sm md:max-w-none md:w-full grid-cols-3 gap-6">
           {heroTechnologies.map((technology) => (
             <TechIcon
               key={technology.name}
@@ -67,7 +71,7 @@ export default function Hero() {
           ))}
         </div>
       </Reveal>
-      <Reveal className="relative grid min-h-96 place-items-center border-t border-border bg-muted lg:min-h-0 lg:border-t-0 lg:border-l">
+      <Reveal className="relative order-0 grid min-h-96 place-items-center border-t border-border bg-muted lg:order-1 lg:min-h-0 lg:border-t-0 lg:border-l">
         <div className="relative w-full">
           <Image
             src={
