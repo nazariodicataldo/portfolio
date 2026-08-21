@@ -1,5 +1,5 @@
 export const CV_URL =
-  "https://5uehff9uouvltq0y.private.blob.vercel-storage.com/Nazario_Di_Cataldo_CV.pdf?vercel-blob-valid-until=1785189694140&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfNVVlaGZmOVVPVVZsdFEwWSIsIm93bmVySWQiOiJ0ZWFtX3lMMnp6TGNoMjJNWmsxYkZ4aW1WV01FVSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzg1MjMyMzMwMzk4LCJpYXQiOjE3ODUxODkxMzEwMjZ9.V1-Lb1ny6tYQxv0xKVy9Ts-B66J6vCnoZIRh7iOeskg&vercel-blob-signature=Lf7HFkHytTSiOvUrIYLR-eaCcddNMWN4Jfx4hpqRj2k"
+  "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/CV_Nazario_Di_Cataldo.pdf"
 
 export const contactLinks = {
   whatsapp: "https://wa.me/393396744316",

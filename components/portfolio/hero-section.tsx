@@ -75,7 +75,7 @@ export default function Hero() {
         <div className="relative w-full">
           <Image
             src={
-              "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/CV_Nazario_Di_Cataldo.pdf"
+              "https://b9ast4t68evq7rlw.public.blob.vercel-storage.com/nazario-dicataldo.webp"
             }
             alt="Foto profilo di Nazario Di Cataldo"
             width={768}
