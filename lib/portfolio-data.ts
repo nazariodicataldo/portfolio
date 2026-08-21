@@ -6,7 +6,7 @@ export const contactLinks = {
   phone: "tel:+393396744316",
   email: "mailto:nazariodicataldo@icloud.com",
   github: "https://github.com/nazariodicataldo",
-  linkedin: "https://www.linkedin.com/in/placeholder-nazario-di-cataldo",
+  linkedin: "https://www.linkedin.com/in/nazario-di-cataldo-016428289/",
 }
 
 export const navigationItems = [
